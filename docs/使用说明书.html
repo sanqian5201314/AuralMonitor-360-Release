@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuralMonitor 360 v2.0 — 用户使用说明书</title>
+    <style>
+        :root {
+            --bg-color: #0b1116;
+            --card-bg: #131c23;
+            --border-color: #233540;
+            --accent-cyan: #00d4aa;
+            --accent-gold: #ffb830;
+            --accent-blue: #38bdf8;
+            --text-main: #e2e8f0;
+            --text-sub: #94a3b8;
+            --code-bg: #060b0e;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.75;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 960px;
+            margin: 36px auto;
+            padding: 0 24px 48px;
+        }
+        header {
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 22px;
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: var(--accent-cyan);
+            font-size: 28px;
+            margin: 0 0 8px;
+            letter-spacing: 0.5px;
+        }
+        .subtitle {
+            color: var(--text-sub);
+            font-size: 15px;
+            margin: 0;
+        }
+        h2 {
+            color: var(--accent-gold);
+            font-size: 20px;
+            margin-top: 38px;
+            border-left: 4px solid var(--accent-gold);
+            padding-left: 12px;
+        }
+        h3 {
+            color: var(--text-main);
+            font-size: 16px;
+            margin: 20px 0 8px;
+        }
+        p { color: var(--text-sub); margin: 8px 0; }
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 18px 22px;
+            margin: 14px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 14px 0;
+            background: var(--card-bg);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 11px 15px;
+            border: 1px solid var(--border-color);
+            text-align: left;
+            font-size: 14px;
+            color: var(--text-sub);
+        }
+        th {
+            background: #18242d;
+            color: var(--accent-cyan);
+            font-weight: 600;
+        }
+        td strong { color: var(--text-main); }
+        .tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-right: 6px;
+        }
+        .tag-cyan { background: rgba(0,212,170,0.14); color: var(--accent-cyan); border: 1px solid rgba(0,212,170,0.5); }
+        .tag-gold { background: rgba(255,184,48,0.14); color: var(--accent-gold); border: 1px solid rgba(255,184,48,0.5); }
+        .tag-blue { background: rgba(56,189,248,0.14); color: var(--accent-blue); border: 1px solid rgba(56,189,248,0.5); }
+        code {
+            background: var(--code-bg);
+            color: var(--accent-blue);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: Consolas, monospace;
+            font-size: 13px;
+        }
+        a { color: var(--accent-cyan); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        ol, ul { padding-left: 22px; color: var(--text-sub); }
+        li { margin-bottom: 8px; }
+        li strong { color: var(--text-main); }
+        .alert-box {
+            background: rgba(0, 212, 170, 0.08);
+            border: 1px solid rgba(0, 212, 170, 0.35);
+            border-radius: 6px;
+            padding: 14px 18px;
+            margin: 16px 0;
+            color: var(--text-main);
+            font-size: 14px;
+        }
+        .warn-box {
+            background: rgba(255, 184, 48, 0.08);
+            border: 1px solid rgba(255, 184, 48, 0.35);
+            border-radius: 6px;
+            padding: 14px 18px;
+            margin: 16px 0;
+            color: var(--text-main);
+            font-size: 14px;
+        }
+        .footer {
+            margin-top: 48px;
+            padding-top: 18px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-sub);
+            font-size: 13px;
+            text-align: center;
+        }
+        @page {
+            size: A4;
+            margin: 12mm;
+        }
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                background-color: var(--bg-color);
+            }
+            .container {
+                margin: 0 auto;
+                padding: 0 8px 16px;
+            }
+            .card, .alert-box, .warn-box, tr {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+            h2 {
+                break-after: avoid;
+                page-break-after: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>AuralMonitor 360 — 用户使用说明书</h1>
+        <p class="subtitle">版本 v2.0（Windows） · 多声道（7.1.4 / 9.1.6）BRIR 双耳空间音频监听软件（独立版 + VST3 插件）</p>
+    </header>
+
+    <div class="alert-box">
+        <strong>说明：</strong>本安装包仅包含 <strong>AuralMonitor 360</strong> 本体（独立桌面版与 VST3 插件）及内置默认 BRIR 听音室脉冲，<strong>不捆绑任何第三方虚拟声卡或播放器安装程序</strong>。在 DAW 插件模式下开箱即用；若需在独立版中监听系统全局或播放器全景声，请按下方第 2 节指引自行前往官网安装虚拟声卡。
+    </div>
+
+    <h2>一、两种使用模式</h2>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 22%;">使用模式</th>
+                <th style="width: 38%;">适用场景</th>
+                <th style="width: 40%;">是否需要虚拟声卡</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><span class="tag tag-cyan">推荐</span><strong>VST3 插件模式</strong></td>
+                <td>Cubase / Nuendo / Reaper / Pro Tools / Studio One 等宿主内的 7.1.4 / 9.1.6 全景声混音与母带监听</td>
+                <td><strong>不需要</strong>，直接插入多声道监听总线即可使用</td>
+            </tr>
+            <tr>
+                <td><span class="tag tag-gold">独立版</span><strong>桌面独立模式</strong></td>
+                <td>监听 Windows 系统声音、Apple Music、浏览器或本地全景声播放器输出</td>
+                <td><strong>需要</strong>自行安装第三方虚拟声卡（如 VB-Cable 或 VB-Audio Matrix）</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>二、独立版虚拟声卡配置指南（自助下载安装）</h2>
+    <p>独立版内置了 <strong>WASAPI Loopback 跨设备直通桥接引擎</strong>（支持无锁环形缓冲与自动重采样，免去采样率冲突），你只需先从官网装好虚拟声卡，剩下的连线由软件自动完成。</p>
+
+    <div class="card">
+        <h3>第 1 步：前往官网自行下载并安装虚拟声卡（二选一）</h3>
+        <ul>
+            <li>
+                <span class="tag tag-cyan">日常推荐 · 免费</span><strong>VB-Cable Virtual Audio Device</strong><br>
+                官网地址：<a href="https://vb-audio.com/Cable/" target="_blank">https://vb-audio.com/Cable/</a><br>
+                下载解压后，右键以<strong>管理员身份</strong>运行 <code>VBCABLE_Setup_x64.exe</code> 安装，装完建议重启一次电脑。
+            </li>
+            <li>
+                <span class="tag tag-blue">专业多声道 · 7.1.4 / 9.1.6</span><strong>VB-Audio Matrix</strong><br>
+                官网地址：<a href="https://vb-audio.com/Matrix/" target="_blank">https://vb-audio.com/Matrix/</a><br>
+                适合需要 12 声道（7.1.4）或 16 声道（9.1.6）无损 ASIO / 多通道直通监听的专业用户。
+            </li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h3>第 2 步：启动 AuralMonitor 360 一键打通声音</h3>
+        <ol>
+            <li>双击打开 <strong>AuralMonitor 360</strong> 独立版。</li>
+            <li>在弹出的<strong>「音频输入与耳机直通设置」</strong>窗口中：
+                <ul>
+                    <li><strong>播放器输入源</strong>：选择你刚装好的虚拟声卡（例如 <code>CABLE Input</code> 或 <code>VBMatrix In 1</code>）。</li>
+                    <li><strong>物理输出设备</strong>：选择你的实体耳机或专业声卡（支持实体 <code>ASIO</code> 或 <code>Windows Audio</code>，并可选择耳机输出通道对如 <code>Out 1+2</code>）。</li>
+                </ul>
+            </li>
+            <li>点击确认后，将 Windows 系统默认播放设备（或播放器的音频输出设备）设置为同一个虚拟声卡，即可直接从耳机听到空间音频监听效果。</li>
+        </ol>
+    </div>
+
+    <div class="warn-box">
+        <strong>避坑提示：</strong>请勿把「物理输出设备」也选成虚拟声卡，否则会形成声音回环或无声；输入选虚拟声卡、输出选你的实体耳机/声卡即可。
+    </div>
+
+    <h2>三、Apple Music 跑通杜比全景声教程（搭配 Final Spatial Audio / NSp）</h2>
+    <p>Windows 版 Apple Music 默认只有在系统输出端点支持空间音频时，才会输出真正的杜比全景声（Dolby Atmos）。通过搭配第三方工具 <strong>Final Spatial Audio（简称 NSp / NativeSpatialPipe）</strong>，即可在 Windows 上把 Apple Music 的全景声实时解码为 <strong>7.1.4（12 声道）</strong> 或 <strong>9.1.6（16 声道）</strong> 无损 PCM 音频流，再交由 <strong>AuralMonitor 360</strong> 进行 BRIR 双耳听音室渲染。</p>
+
+    <div class="card">
+        <h3>完整音频链路</h3>
+        <p><code>Apple Music (Dolby Atmos)</code> &rarr; <code>Final Spatial Audio (NSp 实时解码 7.1.4 / 9.1.6)</code> &rarr; <code>虚拟声卡 (VB-Audio Matrix)</code> &rarr; <code>AuralMonitor 360 (BRIR 空间渲染)</code> &rarr; <code>实体耳机 / 专业声卡</code></p>
+    </div>
+
+    <div class="card">
+        <h3>详细配置步骤</h3>
+        <ol>
+            <li><strong>开启 Apple Music 杜比全景声</strong>：在 Microsoft Store 安装 Windows 版 Apple Music，进入 <code>设置 &rarr; 播放</code>，将 <strong>杜比全景声（Dolby Atmos）</strong> 设为 <strong>始终打开（Always On）</strong>。</li>
+            <li><strong>安装虚拟声卡</strong>：按上一节指引，自行前往官网安装 <strong>VB-Audio Matrix</strong>（推荐，原生支持 12 / 16 通道无损传输）。</li>
+            <li><strong>安装并配置 Final Spatial Audio (NSp)</strong>：
+                <ul>
+                    <li>自行下载并安装 <strong>Final Spatial Audio (NSp / NativeSpatialPipe)</strong>；</li>
+                    <li>在 NSp 配置向导中选择输出声道布局为 <strong>7.1.4（12ch）</strong> 或 <strong>9.1.6（16ch）</strong>；</li>
+                    <li>将 NSp 的多声道输出目标指向 <strong>VB-Audio Matrix</strong> 的虚拟输入通道；</li>
+                    <li>在 Windows 系统声音设置中，将默认播放设备切换为 NSp 提供的空间音频输出端点，并确认系统「空间音效」处于开启状态。</li>
+                </ul>
+            </li>
+            <li><strong>在 AuralMonitor 360 中接入渲染</strong>：
+                <ul>
+                    <li>打开 <strong>AuralMonitor 360</strong> 独立版，在音频设置弹窗里将<strong>输入源</strong>设为 <code>VBMatrix In 1</code>（跨设备桥接模式）或 <code>VB-Matrix VASIO-64A / VASIO-128</code>（专业 ASIO 模式）；</li>
+                    <li>将<strong>物理输出</strong>设为你的实体耳机或专业声卡；</li>
+                    <li>在主界面确认声道格式与 NSp 保持一致（<strong>7.1.4</strong> 或 <strong>9.1.6</strong>）。</li>
+                </ul>
+            </li>
+            <li><strong>验证成功</strong>：在 Apple Music 播放任意带有「杜比全景声」标识的歌曲，观察 AuralMonitor 360 听音室视图——此时 <strong>12 个或 16 个扬声器电平表会同步独立跳动</strong>，代表已成功跑通真多声道全景声监听！</li>
+        </ol>
+    </div>
+
+    <h2>四、核心功能说明</h2>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 24%;">功能模块</th>
+                <th>操作与用途说明</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>听音室视图（Room）</strong></td>
+                <td>直观显示 5.1 / 7.1.4 / 9.1.6 各扬声器位置与实时声道电平；点击扬声器可单独控制 <strong>Mute（静音）</strong> / <strong>Solo（独奏）</strong>，便于排查单声道细节。</td>
+            </tr>
+            <tr>
+                <td><strong>BRIR 脉冲切换</strong></td>
+                <td>软件已<strong>内置默认听音室 BRIR</strong>，打开即用；也支持直接把你自己的多声道 <code>.wav</code> BRIR 文件<strong>拖进软件窗口</strong>实时加载切换。</td>
+            </tr>
+            <tr>
+                <td><strong>去混响（Dereverb）</strong></td>
+                <td>可按起始时间（ms）、窗长与衰减量（dB）平滑削减房间后期混响尾音，在保留声像定位的同时让声音更干脆。</td>
+            </tr>
+            <tr>
+                <td><strong>监听 EQ 与实时频谱</strong></td>
+                <td>内置多段监听均衡器与实时频谱曲线显示，支持鼠标拖拽微调频点增益与 Q 值。</td>
+            </tr>
+            <tr>
+                <td><strong>耳机频响补偿</strong></td>
+                <td>内置多款常见监听耳机的目标曲线校准预设，一键修正耳机自身频响染色，还原更平直的监听参考。</td>
+            </tr>
+            <tr>
+                <td><strong>Bypass / Dim / A-B</strong></td>
+                <td><strong>Bypass</strong> 采用 ITU-R BS.775 声压补偿下混，对比时不炸耳；<strong>Dim</strong> 一键衰减监听音量；<strong>A / B 槽</strong> 支持两套参数快速切换与复制对比。</td>
+            </tr>
+            <tr>
+                <td><strong>粉噪校准（Pink Noise）</strong></td>
+                <td>内置音频线程安全的粉红噪声发生器，配合单路 Solo 可用于校验通道顺序与各扬声器响度一致性。</td>
+            </tr>
+            <tr>
+                <td><strong>迷你视图（Mini）</strong></td>
+                <td>一键折叠为紧凑控制条，方便在混音界面角落常驻不遮挡工程窗口。</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>五、常见问题排查（FAQ）</h2>
+    <div class="card">
+        <h3>1. 独立版打开后听不到声音？</h3>
+        <ul>
+            <li>检查 Windows 右下角小喇叭的播放设备是否已切换到虚拟声卡（如 <code>CABLE Input</code>）。</li>
+            <li>检查软件内的「物理输出设备」是否指向你当前戴着的实体耳机或声卡，且顶部未处于 Mute 状态。</li>
+        </ul>
+        <h3>2. 专业声卡 ASIO 模式下想用耳机 3/4 通道听怎么办？</h3>
+        <ul>
+            <li>在音频设置弹窗里，选择你的实体 ASIO 声卡后，将「耳机输出通道对」切换为 <code>Out 3+4</code> 即可，无需改动宿主或其他路由。</li>
+        </ul>
+        <h3>3. 如何更换自己的听音室 BRIR？</h3>
+        <ul>
+            <li>准备多声道双耳 <code>.wav</code> 格式的 BRIR 文件（例如 24 声道对应 7.1.4 的 12 路左右耳脉冲，或 32 声道对应 9.1.6），直接用鼠标拖进 AuralMonitor 360 主界面松开即可生效。</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        AuralMonitor 360 · Windows 用户使用说明书<br>
+        第三方虚拟声卡（VB-Cable / VB-Audio Matrix）由其各自官方独立提供，本软件仅提供标准音频接口对接。
+    </div>
+</div>
+</body>
+</html>
