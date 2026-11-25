@@ -67,7 +67,7 @@ AuralMonitor 360 (BRIR 听音室双耳卷积 + 耳机补偿)
 2. **安装多通道虚拟声卡**
    - 前往官网自行下载并安装 **VB-Audio Matrix**（https://vb-audio.com/Matrix/），用于承接 12 声道（7.1.4）或 16 声道（9.1.6）无损音频流。
 3. **安装并配置 Final Spatial Audio (NSp)**
-   - 自行下载并安装 **Final Spatial Audio (NSp / NativeSpatialPipe)**；
+   - 前往官方仓库自行下载并安装 **Final Spatial Audio (NSp / NativeSpatialPipe)**：https://github.com/BestGreed/NativeSpatialPipe
    - 在 NSp 配置向导中选择输出布局为 **7.1.4（12 声道）** 或 **9.1.6（16 声道）**；
    - 将 NSp 的多声道输出目标指向 **VB-Audio Matrix** 虚拟输入通道；
    - 在 Windows 声音设置中，将默认播放设备设为 NSp 接管的系统空间音频端点，并确认系统「空间音效」已开启。
