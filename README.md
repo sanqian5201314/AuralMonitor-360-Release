@@ -94,6 +94,7 @@ AuralMonitor 360 (BRIR 听音室双耳卷积 + 耳机补偿)
 
 ---
 
-## 声明
-- 本仓库仅用于 **AuralMonitor 360** 的公开文档展示、版本发布与问题反馈，软件本体为闭源分发。
+## 许可与第三方声明
+- **软件许可**：本仓库仅用于 **AuralMonitor 360** 的公开文档展示、版本发布与问题反馈，软件本体为闭源分发，详见 [LICENSE](LICENSE)。
+- **第三方组件与开源致谢**：本软件基于 JUCE 8 构建，并参考了 AutoEQ（MIT）耳机校准参数与公开声学脉冲数据，完整声明详见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
 - 教程中提及的第三方工具（VB-Cable、VB-Audio Matrix、Final Spatial Audio / NSp、Apple Music 等）均由其各自官方独立提供，请从各自官方渠道下载。
